@@ -109,7 +109,7 @@ def main():
     numbered_tweets=[]
     if numbering_scheme == 'default':
         for tweet in tweets:
-            numbered_tweets.append(str(index) + '/' + tweet)
+            numbered_tweets.append(str(index) + '/ ' + tweet)
             index = index + 1 
         tweets=numbered_tweets
     api = get_tweepy_api()
