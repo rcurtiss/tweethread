@@ -86,7 +86,7 @@ def break_into_tweets(i):
 
 
 def main():
-    '''tweetstorm's main function, to be run in the command line'''
+    '''tweethread's main function, to be run in the command line'''
     filename = sys.argv[1]
     try:
         with open(filename) as file:
