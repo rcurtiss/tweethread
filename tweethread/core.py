@@ -87,7 +87,7 @@ def break_into_tweets(i):
 
 def main():
     '''tweetstorm's main function, to be run in the command line'''
-    function = sys.argv[1]
+    mode = sys.argv[1]
     filename = sys.argv[2]
     try:
         with open(filename) as file:
@@ -100,7 +100,7 @@ def main():
     index=1
     tweetid=0
     for tweet in tweets:
-        if function == 'tweet':
+        if mode == 'tweet':
 	    if index != 1:
                api.update_status(tweet,str(tweetid))
                index=index + 1
@@ -108,11 +108,11 @@ def main():
                tweet=api.update_status(tweet)
                tweetid=tweet.id_str
                index=index + 1
-        elif function == 'parse':
+        elif mode == 'parse':
             print tweet
         else:
             if index == 1:
-              print "Tweethread doesn't recognize the function [[" + function + "]]...please choose either 'tweet' or 'parse'"
+              print "Tweethread doesn't recognize a [[" + mode + "]] mode...please choose either 'tweet' or 'parse'"
               index = index + 1
             else:
               pass
