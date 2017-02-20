@@ -76,8 +76,13 @@ def break_into_tweets(i):
 			sentence=each.split(" ")
 			y=split_seq(sentence,get_number_of_chunks(each,136))
 			for every in y:
-				tweets.append(' '.join(every))
-				index = index + 1
+				if len(every) > 136:
+					for thing in split_seq(every):
+						tweets.append(' '.join(thing))
+						index = index + 1
+				else:
+					tweets.append(' '.join(every))
+					index = index + 1
 		else:
 			tweets.append(each)
 			index = index + 1
