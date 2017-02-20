@@ -64,7 +64,7 @@ def get_sentences(p):
 				else:
 					sentences[0]=x + ' ' + sentences[0]
 		else:
-			pass 
+			sentencearray.append(x) 
 	return sentencearray
 
 def break_into_tweets(i):
