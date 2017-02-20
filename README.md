@@ -16,7 +16,23 @@ Download this repository and run `python setup.py install`
     * TWITTER_ACCESS_TOKEN
     * TWITTER_ACCESS_TOKEN_SECRET
 
-3. Now, you can use it like this:
-    * `tweethread filename` to tweet the contents of a file called `filename`. If it doesn't find `filename` then it will do it like this:
-    * `tweethread 'Can I haz cheezburger? Yes you can cutie patootie.'` where it will tweet the value of the command line argument.
+3. Now, you can use it in a few different ways:
 
+Tweethread has 2 modes; "tweet", and "parse". 
+
+First is it's main purpose, which is to create a tweetstorm out of a large block of text.
+
+   * `tweethread tweet filename.txt` 
+      will tweet the contents of a file called 'filename.txt'.
+      
+   * `tweethread tweet 'Can I haz cheezburger? Yes you can cutie patootie.'`
+       will tweet, or parse the value of the command line argument.
+
+However, before you run tweethread in "tweet" mode, you may want to preview your work in "parse" mode.
+
+   * `tweethread parse filename.txt >> tweets.txt`
+   parses the textfile 'textfile.txt', and saves the output to a file called 'tweets.txt'.
+   
+   * `tweethread parse filename.txt`
+   parses the textfile 'textfile.txt', and displays the output in the console.
+         
