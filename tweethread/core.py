@@ -76,10 +76,10 @@ def break_into_tweets(i):
 			sentence=each.split(" ")
 			y=split_seq(sentence,get_number_of_chunks(each,136))
 			for every in y:
-				tweets.append(str(index) + '/ ' + ' '.join(every))
+				tweets.append(' '.join(every))
 				index = index + 1
 		else:
-			tweets.append(str(index) + '/ ' + each)
+			tweets.append(each)
 			index = index + 1
 
 	return tweets
@@ -87,15 +87,31 @@ def break_into_tweets(i):
 
 def main():
     '''tweetstorm's main function, to be run in the command line'''
+    numbering_scheme='default'
     mode = sys.argv[1]
-    filename = sys.argv[2]
+    if sys.argv[2] == 'nonum':
+        print "Tweet numbering is turned off"
+        numbering_scheme='none'
+        filename = sys.argv[3]
+    else: 
+        if len(sys.argv) > 3:
+           print "Tweethread has no [[" + sys.argv[2] + ']] option. Using default numbering method.'
+           filename = sys.argv[3]
+        else:
+           filename = sys.argv[2] 
     try:
         with open(filename) as file:
             text = file.read()
     except FileNotFoundError:
         text = filename
-
     tweets = break_into_tweets(text)
+    index = 1
+    numbered_tweets=[]
+    if numbering_scheme == 'default':
+        for tweet in tweets:
+            numbered_tweets.append(str(index) + '/' + tweet)
+            index = index + 1 
+        tweets=numbered_tweets
     api = get_tweepy_api()
     index=1
     tweetid=0
