@@ -26,7 +26,7 @@ First is it's main purpose, which is to create a tweetstorm out of a large block
       will tweet the contents of a file called 'filename.txt'.
       
    * `tweethread tweet 'Can I haz cheezburger? Yes you can cutie patootie.'`
-       will tweet, or parse the value of the command line argument.
+       will tweet the value of the command line argument.
 
 However, before you run tweethread in "tweet" mode, you may want to preview your work in "parse" mode.
 
