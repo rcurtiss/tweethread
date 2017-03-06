@@ -124,6 +124,7 @@ def main():
         if mode == 'tweet':
 	    if index != 1:
                api.update_status(tweet,str(tweetid))
+	       tweetid=tweet.id_str
                index=index + 1
             else:
                tweet=api.update_status(tweet)
